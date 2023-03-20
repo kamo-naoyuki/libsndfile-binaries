@@ -102,6 +102,7 @@ curl -LO https://github.com/libsndfile/libsndfile/releases/download/$SNDFILE_VER
 tar xvf libsndfile-$SNDFILE_VERSION.tar.xz
 cd $SNDFILENAME
 ./configure --disable-static --disable-sqlite --disable-alsa && make -j$JOBS
+cat config.log
 cd ..
 
 cp $SNDFILENAME/src/.libs/libsndfile.so libsndfile.so
