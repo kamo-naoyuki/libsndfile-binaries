@@ -58,6 +58,21 @@ jobs:
           name: lib-linux-x86_64
           path: "libsndfile.so"
 
+  build-libs-linux-x86_64-glibc2_17:
+    runs-on: "ubuntu-latest"
+    strategy:
+      fail-fast: true
+    container:
+      image: centos:7
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compile library
+        run: ./linux_build.sh
+      - uses: actions/upload-artifact@v3
+        with:
+          name: lib-linux-x86_64-glibc2_17
+          path: "libsndfile.so"
+
   build-libs-linux-arm64:
     runs-on: ${{ matrix.os }}
     strategy:
