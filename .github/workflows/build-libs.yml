@@ -74,7 +74,7 @@ jobs:
           tar xvf curl-8.0.1.tar.gz
           cd curl-8.0.1
           ./configure --enable-libcurl-option --with-openssl
-          make
+          make || cat config.log
           make install
           rm /usr/bin/curl
           curl -V
