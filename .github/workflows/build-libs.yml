@@ -69,8 +69,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          # zlib-devel and perl-core are required to make OpenSSL
-          yum install -y gcc make zlib-devel perl-core
+          yum install -y gcc make zlib-devel perl-core curl # zlib-devel and perl-core are required to make OpenSSL
       - name: Compile OpenSSL
         run : |
           curl -LO https://www.openssl.org/source/openssl-${SSL_VERSION}.tar.gz
