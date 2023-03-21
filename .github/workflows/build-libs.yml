@@ -67,8 +67,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          yum install -y gcc make wget openssl-devel libmetalink-devel libssh2-devel c-ares-devel lbzip2
-          yum update openssl
+          yum install -y gcc make wget openssl openssl-devel libmetalink-devel libssh2-devel c-ares-devel lbzip2
 
       - name: Install curl
         run: |
