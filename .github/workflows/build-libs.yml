@@ -81,6 +81,7 @@ jobs:
           make
           make test
           make install
+          ldconfig
           # check version
           openssl version
       - name: Compile curl
