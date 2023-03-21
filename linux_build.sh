@@ -18,7 +18,7 @@ export LDFLAGS="-fPIC"
 
 # libogg
 
-curl -LO https://downloads.xiph.org/releases/ogg/libogg-$OGGVERSION.tar.gz
+wget https://downloads.xiph.org/releases/ogg/libogg-$OGGVERSION.tar.gz
 tar xvf libogg-$OGGVERSION.tar.gz
 cd libogg-$OGGVERSION
 ./configure --disable-shared
@@ -27,7 +27,7 @@ cd ..
 
 # libvorbis
 
-curl -LO https://downloads.xiph.org/releases/vorbis/libvorbis-$VORBISVERSION.tar.gz
+wget https://downloads.xiph.org/releases/vorbis/libvorbis-$VORBISVERSION.tar.gz
 tar xvf libvorbis-$VORBISVERSION.tar.gz
 cd libvorbis-$VORBISVERSION
 ./configure --disable-shared --with-ogg-includes=$OGG_INCDIR --with-ogg-libraries=$OGG_LIBDIR
@@ -36,7 +36,7 @@ cd ..
 
 # libFLAC
 
-curl -LO https://downloads.xiph.org/releases/flac/flac-$FLACVERSION.tar.xz
+wget https://downloads.xiph.org/releases/flac/flac-$FLACVERSION.tar.xz
 tar xvf flac-$FLACVERSION.tar.xz
 cd flac-$FLACVERSION
 ./configure --enable-static --disable-shared --with-ogg-includes=$OGG_INCDIR --with-ogg-libraries=$OGG_LIBDIR
@@ -45,7 +45,7 @@ cd ..
 
 # libopus
 
-curl -LO https://archive.mozilla.org/pub/opus/opus-$OPUSVERSION.tar.gz
+wget https://archive.mozilla.org/pub/opus/opus-$OPUSVERSION.tar.gz
 tar xvf opus-$OPUSVERSION.tar.gz
 cd opus-$OPUSVERSION
 ./configure --disable-shared
@@ -54,7 +54,7 @@ cd ..
 
 # mpg123
 
-curl -LO https://sourceforge.net/projects/mpg123/files/mpg123/$MPG123VERSION/mpg123-$MPG123VERSION.tar.bz2
+wget https://sourceforge.net/projects/mpg123/files/mpg123/$MPG123VERSION/mpg123-$MPG123VERSION.tar.bz2
 tar xvf mpg123-$MPG123VERSION.tar.bz2
 cd mpg123-$MPG123VERSION
 ./configure --enable-static --disable-shared
@@ -63,7 +63,7 @@ cd ..
 
 # liblame
 
-curl -LO https://sourceforge.net/projects/lame/files/lame/$LAMEVERSION/lame-$LAMEVERSION.tar.gz
+wget https://sourceforge.net/projects/lame/files/lame/$LAMEVERSION/lame-$LAMEVERSION.tar.gz
 tar xvf lame-$LAMEVERSION.tar.gz
 cd lame-$LAMEVERSION
 ./configure --enable-static --disable-shared
@@ -98,7 +98,7 @@ cp opus-$OPUSVERSION/include/*.h opus-$OPUSVERSION/include/opus
 mkdir -p lame-$LAMEVERSION/include/lame
 cp lame-$LAMEVERSION/include/*.h lame-$LAMEVERSION/include/lame
 
-curl -LO https://github.com/libsndfile/libsndfile/releases/download/$SNDFILE_VERSION/libsndfile-$SNDFILE_VERSION.tar.xz
+wget https://github.com/libsndfile/libsndfile/releases/download/$SNDFILE_VERSION/libsndfile-$SNDFILE_VERSION.tar.xz
 tar xvf libsndfile-$SNDFILE_VERSION.tar.xz
 cd $SNDFILENAME
 ./configure --disable-static --disable-sqlite --disable-alsa && make -j$JOBS
