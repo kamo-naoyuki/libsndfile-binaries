@@ -64,26 +64,21 @@ jobs:
       fail-fast: true
     container:
       image: centos:7
+      env: 
+        SSL_VERSION: 3.1.0
     steps:
       - uses: actions/checkout@v3
       - run: |
-          yum install -y git centos-release-scl bzip2 wget which unzip bc patch
-          yum-config-manager --enable rhel-server-rhscl-7-rpms
-          yum install -y devtoolset-7-gcc-c++ devtoolset-7-make sox ncurses-devel libtool automake autoconf
-          yum install -y gcc make wget openssl openssl-devel libmetalink-devel libssh2-devel c-ares-devel lbzip2
-          openssl version
-
-      - name: Install curl
-        run: |
-          curl -V
-          wget --no-check-certificate https://curl.se/download/curl-8.0.1.tar.gz
-          tar xvf curl-8.0.1.tar.gz
-          cd curl-8.0.1
-          ./configure --enable-libcurl-option --with-openssl || cat config.log
-          make || cat config.log
+          # zlib-devel and perl-core are required to make OpenSSL
+          yum install -y gcc make zlib-devel perl-core
+      - name: Compile OpenSSL
+        run : |
+          curl -LO https://www.openssl.org/source/openssl-${SSL_VERSION}.tar.gz
+          tar xvf openssl-${SSL_VERSION}.tar.gz
+          cd openssl-${SSL_VERSION}
+          ./configure --prefix=/usr/local shared zlib-dynamic
+          make
           make install
-          rm /usr/bin/curl
-          curl -V
       - name: Compile library
         run: ./linux_build.sh
       - uses: actions/upload-artifact@v3
