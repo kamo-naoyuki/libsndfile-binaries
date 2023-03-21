@@ -73,7 +73,7 @@ jobs:
           wget --no-check-certificate https://curl.se/download/curl-8.0.1.tar.gz
           tar xvf curl-8.0.1.tar.gz
           cd curl-8.0.1
-          ./configure --enable-libcurl-option --with-openssl
+          ./configure --enable-libcurl-option --with-openssl || cat config.log
           make || cat config.log
           make install
           rm /usr/bin/curl
