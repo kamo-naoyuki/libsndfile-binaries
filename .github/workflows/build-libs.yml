@@ -76,8 +76,9 @@ jobs:
           curl -LO https://www.openssl.org/source/openssl-${SSL_VERSION}.tar.gz
           tar xvf openssl-${SSL_VERSION}.tar.gz
           cd openssl-${SSL_VERSION}
-          ./configure --prefix=/usr/local shared zlib-dynamic
+          ./config --prefix=/usr/local shared zlib-dynamic
           make
+          make test
           make install
       - name: Compile library
         run: ./linux_build.sh
