@@ -100,7 +100,7 @@ cp opus-$OPUSVERSION/include/*.h opus-$OPUSVERSION/include/opus
 mkdir -p lame-$LAMEVERSION/include/lame
 cp lame-$LAMEVERSION/include/*.h lame-$LAMEVERSION/include/lame
 
-curl -LO --insecure https://github.com/libsndfile/libsndfile/releases/download/$SNDFILE_VERSION/libsndfile-$SNDFILE_VERSION.tar.xz
+curl -LO https://github.com/libsndfile/libsndfile/releases/download/$SNDFILE_VERSION/libsndfile-$SNDFILE_VERSION.tar.xz
 tar xvf libsndfile-$SNDFILE_VERSION.tar.xz
 cd $SNDFILENAME
 ./configure --disable-static --disable-sqlite --disable-alsa && make -j$JOBS
