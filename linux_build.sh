@@ -38,7 +38,7 @@ cd ..
 
 # libFLAC
 
-curl -LO --insecure https://downloads.xiph.org/releases/flac/flac-$FLACVERSION.tar.xz
+curl -LO https://downloads.xiph.org/releases/flac/flac-$FLACVERSION.tar.xz
 tar xvf flac-$FLACVERSION.tar.xz
 cd flac-$FLACVERSION
 ./configure --enable-static --disable-shared --with-ogg-includes=$OGG_INCDIR --with-ogg-libraries=$OGG_LIBDIR
@@ -47,7 +47,7 @@ cd ..
 
 # libopus
 
-curl -LO --insecure https://archive.mozilla.org/pub/opus/opus-$OPUSVERSION.tar.gz
+curl -LO https://archive.mozilla.org/pub/opus/opus-$OPUSVERSION.tar.gz
 tar xvf opus-$OPUSVERSION.tar.gz
 cd opus-$OPUSVERSION
 ./configure --disable-shared
@@ -65,7 +65,7 @@ cd ..
 
 # liblame
 
-curl -LOe https://sourceforge.net/projects/lame/files/lame/$LAMEVERSION/lame-$LAMEVERSION.tar.gz
+curl -LO https://sourceforge.net/projects/lame/files/lame/$LAMEVERSION/lame-$LAMEVERSION.tar.gz
 tar xvf lame-$LAMEVERSION.tar.gz
 cd lame-$LAMEVERSION
 ./configure --enable-static --disable-shared
