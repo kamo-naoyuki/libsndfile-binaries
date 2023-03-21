@@ -71,7 +71,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install required packages
         run: |
-          yum install -y gcc g++ make zlib-devel perl-core  libmetalink-devel libssh2-devel c-ares-devel lbzip2
+          yum install -y gcc gcc-c++ make zlib-devel perl-core libmetalink-devel libssh2-devel c-ares-devel lbzip2
       - name: Compile OpenSSL
         run : |
           curl -LO https://www.openssl.org/source/openssl-${SSL_VERSION}.tar.gz
