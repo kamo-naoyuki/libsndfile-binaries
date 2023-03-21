@@ -67,6 +67,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: yum install -y gcc
+      - name: Install curl
+        run: |
+          yum install -y openssl-devel libmetalink-devel libssh2-devel c-ares-devel lbzip2
+          wget https://curl.se/download/curl-8.0.1.tar.gz
+          tar xvf curl-8.0.1.tar.gz
+          cd curl-8.0.1
+          ./configure --enable-libcurl-option
+          make
+          make install
+          rm /usr/bin/curl
+          curl -V
       - name: Compile library
         run: ./linux_build.sh
       - uses: actions/upload-artifact@v3
