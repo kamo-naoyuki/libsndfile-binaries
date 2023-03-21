@@ -83,6 +83,17 @@ jobs:
           make install
           # check version
           openssl version
+      - name: Compile curl
+        run: |
+          curl -LO https://curl.se/download/curl-${CURL_VERSION}.tar.gz
+          tar xvf curl-${CURL_VERSION}.tar.gz
+          cd curl-${CURL_VERSION}
+          ./configure --enable-libcurl-option --with-openssl
+          make
+          make install
+          rm /usr/bin/curl
+          # check version
+          curl -V
 
       - name: Compile library
         run: ./linux_build.sh
