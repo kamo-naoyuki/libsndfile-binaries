@@ -1,4 +1,4 @@
-set -euo pipefail
+set -eu
 
 OGGVERSION=1.3.5
 VORBISVERSION=1.3.7
@@ -57,6 +57,7 @@ cd ..
 # mpg123
 
 curl -LO https://sourceforge.net/projects/mpg123/files/mpg123/$MPG123VERSION/mpg123-$MPG123VERSION.tar.bz2
+ls
 tar xvf mpg123-$MPG123VERSION.tar.bz2
 cd mpg123-$MPG123VERSION
 ./configure --enable-static --disable-shared
