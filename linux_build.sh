@@ -57,7 +57,7 @@ cd ..
 # mpg123
 
 curl -LO https://sourceforge.net/projects/mpg123/files/mpg123/$MPG123VERSION/mpg123-$MPG123VERSION.tar.bz2
-ls
+ls mpg123-$MPG123VERSION.tar.bz2
 tar xvf mpg123-$MPG123VERSION.tar.bz2
 cd mpg123-$MPG123VERSION
 ./configure --enable-static --disable-shared
