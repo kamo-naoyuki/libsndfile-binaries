@@ -65,6 +65,7 @@ jobs:
     container:
       image: centos:7
       env: 
+        # OpenSSL<=1.0.2 is available for CentOS7, so we need to compile OpenSSL and Curl
         SSL_VERSION: 3.1.0
         CURL_VERSION: 8.0.1
     steps:
