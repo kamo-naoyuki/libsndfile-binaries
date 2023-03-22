@@ -1,3 +1,5 @@
+set -eu
+
 OGGVERSION=1.3.5
 VORBISVERSION=1.3.7
 FLACVERSION=1.4.2
@@ -55,6 +57,7 @@ cd ..
 # mpg123
 
 curl -LO https://sourceforge.net/projects/mpg123/files/mpg123/$MPG123VERSION/mpg123-$MPG123VERSION.tar.bz2
+ls mpg123-$MPG123VERSION.tar.bz2
 tar xvf mpg123-$MPG123VERSION.tar.bz2
 cd mpg123-$MPG123VERSION
 ./configure --enable-static --disable-shared
@@ -102,6 +105,7 @@ curl -LO https://github.com/libsndfile/libsndfile/releases/download/$SNDFILE_VER
 tar xvf libsndfile-$SNDFILE_VERSION.tar.xz
 cd $SNDFILENAME
 ./configure --disable-static --disable-sqlite --disable-alsa && make -j$JOBS
+cat config.log
 cd ..
 
 cp $SNDFILENAME/src/.libs/libsndfile.so libsndfile.so
